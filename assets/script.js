@@ -19,6 +19,9 @@ var questionText = document.createElement("p");
 // variable for initials
 var initials = document.querySelector(".initials");
 
+// variable for highscore btn
+var scoreBtn = document.createElement("scorebutton");
+
 
 // declare global vriables
 // variable to store timer number
@@ -88,6 +91,12 @@ function welcomePg() {
   // append button to container
   container.appendChild(startBtn);
 }
+// function that shows highscore button
+function highScoreBtn() {
+
+  scoreBtn.textContent = "HIGHSCORES";
+ container.appendChild(scoreBtn);
+}
 
 // function that shows the question and starts the timer
 function startQuiz() {
@@ -96,6 +105,9 @@ function startQuiz() {
   showTimer();
   // call next question function
   nextQuestion();
+  // add score btn
+  highScoreBtn()
+
 }
 
 
@@ -114,7 +126,7 @@ function showTimer() {
     }
 
   }, 1 * 1000);
-  
+
 }
 
 
@@ -150,6 +162,7 @@ function nextQuestion() {
 
   // append div element to the container
   container.appendChild(answersDiv);
+  highScoreBtn()
 
 };
 
@@ -211,7 +224,7 @@ function timerOver() {
 
 function pageRedirect() {
   window.location = "results.html"
-}   
+}
 
 // function gameOver() {
 //   if (index == (questions.length - 1)) {
@@ -226,12 +239,12 @@ function pageRedirect() {
 // gameOver();
 
 var score = ("Your final score is:  " + timer.textContent);
-if (timer.textContent <= 0){
+if (timer.textContent <= 0) {
   score = ("Your final score is:  0");
 }
 var userInits = ("Your initials: " + initials.value);
-console.log("Score  "+ score);
-console.log("Inits  :"+ initials.value);
+console.log("Score  " + score);
+console.log("Inits  :" + initials.value);
 
 
 
