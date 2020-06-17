@@ -110,6 +110,7 @@ function showTimer() {
     if (timeLeft <= 0 || index == questions.length) {
       clearInterval(timeInterval);
       timerOver();
+      pageRedirect()
     }
 
   }, 1 * 1000);
@@ -206,6 +207,11 @@ function timerOver() {
   timer.textContent = ("The time is up!");
 
 }
+
+
+function pageRedirect() {
+  window.location = "results.html"
+}   
 
 // function gameOver() {
 //   if (index == (questions.length - 1)) {
