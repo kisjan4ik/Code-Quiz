@@ -14,11 +14,15 @@ var startBtn = document.createElement("button");
 
 // create p tags to display questions
 var questionText = document.createElement("p");
-// add classto title (P)
+// add class to title (P)
+
+// variable for initials
+var initials = document.querySelector(".initials");
+
 
 // declare global vriables
 // variable to store timer number
-var timeLeft = 15;
+var timeLeft = 75;
 // variable to store current index
 var index = 0;
 
@@ -26,8 +30,8 @@ var index = 0;
 // setting style attributes
 
 container.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-timer.setAttribute("style","float: right");
-startText.setAttribute("style","font-family:Arial, Helvetica, sans-serif", "font-color: #4aaaa5" )
+timer.setAttribute("style", "float: right");
+startText.setAttribute("style", "font-family:Arial, Helvetica, sans-serif", "font-color: #4aaaa5")
 startBtn.setAttribute("style", "background-color:violet", "width:150px", "padding: 10px")
 // questions.setAttribute("style","color:pink", "font-size: 30px");
 questionText.setAttribute("style", "display: grid;, margin: 5 px; color: red");
@@ -103,13 +107,17 @@ function showTimer() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timer.textContent = (timeLeft + "  seconds left");
-    if (timeLeft <= 0) {
+    if (timeLeft <= 0 || index == questions.length) {
       clearInterval(timeInterval);
       timerOver();
     }
 
-  }, 1 * 1000)
+  }, 1 * 1000);
+  
 }
+
+
+
 // function that handles and displays the next queston
 function nextQuestion() {
 
@@ -123,7 +131,7 @@ function nextQuestion() {
   container.appendChild(questionText);
   // create  a div element to wrap the "choices"
   var answersDiv = document.createElement("div");
-  
+
 
   // for loop to 
   // create button elements for each choice
@@ -151,7 +159,7 @@ document.addEventListener("click", function () {
   if (event.target.matches(".choiceBtn")) {
     var correctAnswer = document.getElementById("correct");
 
-    correctAnswer.setAttribute("style","margin:auto; text-align:center;" );
+    correctAnswer.setAttribute("style", "margin:auto; text-align:center;");
 
     // *****LOGIC TO CHECK FOR THE RIGHT ANSWER***//
     // set condition for matching qnswer
@@ -196,27 +204,39 @@ welcomePg()
 
 function timerOver() {
   timer.textContent = ("The time is up!");
- 
-} 
-function gameOver(){
-  if(index == (questions.length-1)){
-    var gameEndTimer = setTimeout(function(){
-      correctAnswer.textContent = "GAME OVER!";
-      // result form
-  }, 3000)
-    
-    
-}}
-gameOver()
+
+}
+
+// function gameOver() {
+//   if (index == (questions.length - 1)) {
+//     var gameEndTimer = setTimeout(function () {
+//       correctAnswer.textContent = "GAME OVER!";
+//       // result form
+//     }, 3000)
+
+// setTimeout();
+//   }
+// }
+// gameOver();
+
+var score = ("Your final score is:  " + timer.textContent);
+if (timer.textContent <= 0){
+  score = ("Your final score is:  0");
+}
+var userInits = ("Your initials: " + initials.value);
+console.log("Score  "+ score);
+console.log("Inits  :"+ initials.value);
 
 
-var done = {
-  "Your final score is:": timeLeft,
-  "Your initials": initials.value.trim(),
-};
 
-localStorage.setItem("done", JSON.stringify("done"));
 
-var lastScore = JSON.parse(localStorage.getItem("done"));
-done.timeleftSpan.textContent = lastScore.timeLeft;
-done.initials.valueSpan = lastScore.initials;
+localStorage.setItem("score", JSON.stringify(score));
+localStorage.setItem("userInits", JSON.stringify(userInits))
+var lastScore = JSON.parse(localStorage.getItem("score"));
+var insertInits = JSON.parse(localStorage.getItem("userInits"));
+
+
+
+
+// done.timeleftSpan.textContent = lastScore.timeLeft;
+// done.initials.valueSpan = lastScore.initials;
