@@ -1,3 +1,40 @@
+
+// hook elements from the page (i.e. var exampleEl = document.querySelector(".elementClass"))
+// hook container element
+var container = document.querySelector(".container");
+// hook timer element
+var timer = document.getElementById("timer");
+
+// Create dynamic elements (i.e. exampleDynamicEl = document.creteElement("button"))
+// create h1 to show starting heading
+var startText = document.createElement("h1");
+
+// create button to start quiz
+var startBtn = document.createElement("button");
+
+// create p tags to display questions
+var questionText = document.createElement("p");
+// add classto title (P)
+
+// declare global vriables
+// variable to store timer number
+var timeLeft = 15;
+// variable to store current index
+var index = 0;
+
+
+// setting style attributes
+
+container.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+timer.setAttribute("style","float: right");
+startText.setAttribute("style","font-family:Arial, Helvetica, sans-serif", "font-color: #4aaaa5" )
+startBtn.setAttribute("style", "background-color:violet", "width:150px", "padding: 10px")
+// questions.setAttribute("style","color:pink", "font-size: 30px");
+questionText.setAttribute("style", "display: grid;, margin: 5 px; color: red");
+
+
+
+
 // create a questions as an object. 
 
 var questions = [
@@ -28,27 +65,6 @@ var questions = [
   }
 ];
 
-// hook elements from the page (i.e. var exampleEl = document.querySelector(".elementClass"))
-// hook container element
-var container = document.querySelector(".container");
-// hook timer element
-var timer = document.getElementById("timer");
-
-// Create dynamic elements (i.e. exampleDynamicEl = document.creteElement("button"))
-// create h1 to show starting heading
-var startText = document.createElement("h1");
-
-// create button to start quiz
-var startBtn = document.createElement("button");
-
-// create p tags to display questions
-var questionText = document.createElement("p");
-
-// declare global vriables
-// variable to store timer number
-var timeLeft = 15;
-// variable to store current index
-var index = 0;
 
 // *******FUNCTIONS******//
 // function that loads content when page first load
@@ -107,6 +123,7 @@ function nextQuestion() {
   container.appendChild(questionText);
   // create  a div element to wrap the "choices"
   var answersDiv = document.createElement("div");
+  
 
   // for loop to 
   // create button elements for each choice
@@ -133,6 +150,9 @@ document.addEventListener("click", function () {
   // if event.target.matches (--choice button class--)
   if (event.target.matches(".choiceBtn")) {
     var correctAnswer = document.getElementById("correct");
+
+    correctAnswer.setAttribute("style","margin:auto; text-align:center;" );
+
     // *****LOGIC TO CHECK FOR THE RIGHT ANSWER***//
     // set condition for matching qnswer
     if (event.target.textContent === questions[index].answer) {
@@ -179,19 +199,24 @@ function timerOver() {
  
 } 
 function gameOver(){
-  if(index == questions.length){
-correctAnswer.textContent = "GAME OVER!";
+  if(index == (questions.length-1)){
+    var gameEndTimer = setTimeout(function(){
+      correctAnswer.textContent = "GAME OVER!";
+      // result form
+  }, 3000)
+    
+    
 }}
 gameOver()
 
 
-// setting style attributes
+var done = {
+  "Your final score is:": timeLeft,
+  "Your initials": initials.value.trim(),
+};
 
-container.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-timer.setAttribute("style","float: right");
-startText.setAttribute("style","font-family:")
-startBtn
-questions.setAttribute("style","color:pink", "font-size: 30px");
-questionText
-answersDiv
-correctAnswer
+localStorage.setItem("done", JSON.stringify("done"));
+
+var lastScore = JSON.parse(localStorage.getItem("done"));
+done.timeleftSpan.textContent = lastScore.timeLeft;
+done.initials.valueSpan = lastScore.initials;

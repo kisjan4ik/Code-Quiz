@@ -9,17 +9,22 @@
 </head>
 
 <body>
-    
-    <div id="timer"></div>
+
     <div class="container"></div>
+    <div id="timer"></div>
     <div id="score"></div>
-    <div id="correct"></div>
+    <div id="correct" class="answer"></div>
 
-    <!-- <div>
-        <button id="start">Let's start</button>
-    </div>
+    <h2>Your final score is:</h2>
+    <form method="POST">
+        <div class="input-group">
+            <label form="initials">Your initials</label>
+            <input type="text" name="first-name" id="first-name" placeholder="Initials" />
+            <button id="submit">Submit</button>
+        </div>
+    </form>
 
-    <p></p> -->
+
 
 
     <script src="./assets/script.js"></script>
