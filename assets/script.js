@@ -58,98 +58,140 @@ var index = 0;
 // function to check the answer and display to following question
 
 // function that loads content when page first load
-function welcomePg (){
-// add text to Title tag
-startText.textContent = "Welcome to Code Quiz!";
-// add text to button
-startBtn.textContent = "Start Quiz";
-// append text to container
-container.appendChild(startText);
-// append button to container
-container.appendChild(startBtn);
+function welcomePg() {
+  // add text to Title tag
+  startText.textContent = "Welcome to Code Quiz!";
+  // add text to button
+  startBtn.textContent = "Start Quiz";
+  // append text to container
+  container.appendChild(startText);
+  // append button to container
+  container.appendChild(startBtn);
 }
 
 // function that shows the question and starts the timer
-function startQuiz(){
+function startQuiz() {
 
-// show timer function
-showTimer();
-// call next question function
-nextQuestion();
+  // show timer function
+  showTimer();
+  // call next question function
+  nextQuestion();
 }
 
 
 // function that handles the timer
-function showTimer(){
-// display timer to screen
-timer.textContent = timeLeft;
-// create setInterval and store it to a variable
-var timeInterval = setInterval(function () {
-timeLeft--;
-timer.textContent = (timeLeft + "  seconds left");
-if (timeLeft === 0){
-  clearInterval(timeInterval);
-  gameOver ();
-}
+function showTimer() {
+  // display timer to screen
+  timer.textContent = timeLeft;
+  // create setInterval and store it to a variable
+  var timeInterval = setInterval(function () {
+    timeLeft--;
+    timer.textContent = (timeLeft + "  seconds left");
+    if (timeLeft <= 0) {
+      clearInterval(timeInterval);
+      timerOver();
+    }
 
-}, 1 *1000)
+  }, 1 * 1000)
 }
 // function that handles and displays the next queston
-function nextQuestion(){
- 
-  // declare a variable to store current question. Assign the current question.
-var currentQuestion = questions[index];
-// empty container element
-container.textContent = "";
-// add current question title to the question display variable
-questionText.textContent = currentQuestion.title;
-// append the question display variable to the container
-container.appendChild(questionText);
-// create  a div element to wrap the "choices"
-var answersDiv = document.createElement("div");
+function nextQuestion() {
 
-// for loop to 
+  // declare a variable to store current question. Assign the current question.
+  var currentQuestion = questions[index];
+  // empty container element
+  container.textContent = "";
+  // add current question title to the question display variable
+  questionText.textContent = currentQuestion.title;
+  // append the question display variable to the container
+  container.appendChild(questionText);
+  // create  a div element to wrap the "choices"
+  var answersDiv = document.createElement("div");
+
+  // for loop to 
   // create button elements for each choice
   // add a class to each button to be used with the event listener
   // add text to each button from question choices
   // append buttons to div element created to wrap choices
 
-for (let i = 0; i < currentQuestion.choices.length; i++) {
- var answerBtn = document.createElement("button");
- answerBtn.classList.add("choiceBtn");
- answerBtn.textContent = currentQuestion.choices[i];
- answersDiv.appendChild(answerBtn);
-  
-}
+  for (let i = 0; i < currentQuestion.choices.length; i++) {
+    var answerBtn = document.createElement("button");
+    answerBtn.classList.add("choiceBtn");
+    answerBtn.textContent = currentQuestion.choices[i];
+    answersDiv.appendChild(answerBtn);
 
-// append div element to the container
-container.appendChild(answersDiv);
+  }
+
+  // append div element to the container
+  container.appendChild(answersDiv);
 
 };
 
 // function to check the answer and display to the following question
-function checkAnswer(event){
+document.addEventListener("click", function () {
 
   // if event.target.matches (--choice button class--)
-if(event.target.matches(".choiceBtn")){
+  if (event.target.matches(".choiceBtn")) {
+    var correctAnswer = document.getElementById("correct");
+    // *****LOGIC TO CHECK FOR THE RIGHT ANSWER***//
+    // set condition for matching qnswer
+    if (event.target.textContent === questions[index].answer) {
+      // set variable for correct answer result
 
-  // *****LOGIC TO CHECK FOR THE RIGHT ANSWER***//
-  index++;
-  nextQuestion();
-}
-  // increse index by 1
-  // show next question
-}
+      correctAnswer.textContent = "CORRECT ANSWER";
+      index++;
+    }
+    else {
+      correctAnswer.textContent = "WRONG ANSWER";
+      timeLeft = timeLeft - 10;
+      index++;
+
+    }
+    nextQuestion();
+  }
+
+
+})
+// increse index by 1
+// show next question
+
+
+
+// if correct - show "Correct"
+// if not correct - show "Wrong"
+// decrese timer for 10 seconds
+
+
+
+
 
 // add eventlistener to start quiz
 startBtn.addEventListener("click", startQuiz);
 // add event listener to choice button
-document.addEventListener("click", checkAnswer);
+
 // call function to show opening page
 
 welcomePg()
 
 
-function gameOver() {
+function timerOver() {
   timer.textContent = ("The time is up!");
-}
+ 
+} 
+function gameOver(){
+  if(index == questions.length){
+correctAnswer.textContent = "GAME OVER!";
+}}
+gameOver()
+
+
+// setting style attributes
+
+container.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+timer.setAttribute("style","float: right");
+startText.setAttribute("style","font-family:")
+startBtn
+questions.setAttribute("style","color:pink", "font-size: 30px");
+questionText
+answersDiv
+correctAnswer
