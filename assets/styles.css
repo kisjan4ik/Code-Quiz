@@ -1,3 +1,8 @@
+body {
+    background-image: url(../assets/images/font.png);
+}
+
+
 h1 {
     color: purple;
     font-family:Arial, Helvetica, sans-serif;
@@ -5,7 +10,7 @@ h1 {
 }
 
 h2 {
-    color:#419793;
+    color:#1f7e79;
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -33,13 +38,13 @@ h2 {
     top: 0 px;
     left: 0px;
     text-align: center;
-    width: 45%;
-    background-color: #dda3f5;
+    width: 15%;
+    background-color: #54aaa6;
     border: 3 px solid purple;
     border-radius: 8px;
     margin: 10px;
     cursor: pointer;
-    font-size: 30 px;
+    font-size: 25 px;
     color: purple;
     font-weight: bolder;
     letter-spacing: 0.21px;
@@ -61,7 +66,7 @@ h2 {
 
 .qtext {
     text-align: left ;
-    color:#419793;
+    color:#1f7e79;
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -91,7 +96,7 @@ color:purple;
 .answer {
     margin-left: -370px;
     text-align: center;
-    color:#419793;
+    color:purple;
     font-size: large;
     font-family:Arial, Helvetica, sans-serif;
 }
@@ -99,7 +104,7 @@ color:purple;
 
 
 .card {
-    background-color: #fff;
+    background-color: rgb(235, 191, 236);
     border: 1px solid #eceff1;
     border-radius: 8px;
     box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
@@ -112,7 +117,82 @@ color:purple;
     position: relative;
     float: left;
   }
+
+  .initials {
+    font-size: 35 px;
+    color: purple;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+  }
   
  #timer {
      float: right;
+     text-align: center;
+    width: 15%;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 35 px;
+    color: purple;
+    font-weight: bolder;
+    letter-spacing: 0.21px;
+    line-height: 45 px;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
  }
+ 
+ #goback {
+     position:fixed;
+    top: 0 px;
+    left: 0px;
+    text-align: center;
+    width: 15%;
+    background-color: #54aaa6;
+    border: 3 px solid purple;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 25 px;
+    color: purple;
+    font-weight: bolder;
+    letter-spacing: 0.21px;
+    line-height: 45 px;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#clearscore {
+
+   text-align: center;
+   width: 15%;
+   background-color: #54aaa6;
+   border: 3 px solid purple;
+   border-radius: 8px;
+   margin-top: 10px;
+   margin-left: -400px;
+   cursor: pointer;
+   font-size: 25 px;
+   color: purple;
+   font-weight: bolder;
+   letter-spacing: 0.21px;
+   line-height: 45 px;
+   padding: 7px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+#submit {
+   text-align: center;
+   width: 15%;
+   background-color: #54aaa6;
+   border: 3 px solid purple;
+   border-radius: 8px;
+   margin: 10px;
+   cursor: pointer;
+   font-size: 25 px;
+   color: purple;
+   font-weight: bolder;
+   letter-spacing: 0.21px;
+   line-height: 45 px;
+   padding: 7px;
+   font-family: Arial, Helvetica, sans-serif;
+}

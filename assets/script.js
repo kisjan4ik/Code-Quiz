@@ -88,6 +88,7 @@ function welcomePg() {
   container.appendChild(startBtn);
 }
 // function that shows highscore button
+
 function highScoreBtn() {
 
   scoreBtn.textContent = "HIGHSCORES";
