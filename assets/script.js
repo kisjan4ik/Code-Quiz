@@ -9,11 +9,13 @@ var timer = document.getElementById("timer");
 // create h1 to show starting heading
 var startText = document.createElement("h1");
 
-// create button to start quiz
+// create button to start quiz<p><strong>First Name:</strong> <span id="user-first-name"></span></p>
 var startBtn = document.createElement("button");
+startBtn.classList.add("startBtn");
 
 // create p tags to display questions
 var questionText = document.createElement("p");
+questionText.classList.add("qtext");
 // add class to title (P)
 
 // variable for initials
@@ -21,7 +23,10 @@ var initials = document.querySelector(".initials");
 
 // variable for highscore btn
 var scoreBtn = document.createElement("scorebutton");
+scoreBtn.classList.add("scorebtn")
 
+// set variable for initial instructions
+var instructions = document.createElement("h2");
 
 // declare global vriables
 // variable to store timer number
@@ -29,46 +34,33 @@ var timeLeft = 75;
 // variable to store current index
 var index = 0;
 
-
-// setting style attributes
-
-container.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-timer.setAttribute("style", "float: right");
-startText.setAttribute("style", "font-family:Arial, Helvetica, sans-serif", "font-color: #4aaaa5")
-startBtn.setAttribute("style", "background-color:violet", "width:150px", "padding: 10px")
-// questions.setAttribute("style","color:pink", "font-size: 30px");
-questionText.setAttribute("style", "display: grid;, margin: 5 px; color: red");
-
-
-
-
 // create a questions as an object. 
 
 var questions = [
   {
-    title: "Example Question 1:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "Choice 4"
+    title: "Commonly used data types do not include:",
+    choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+    answer: "3. alerts"
   },
   {
-    title: "Example Question 2:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "Choice 2"
+    title: "The condition in if/else statement is enclosed within _____.",
+    choices: ["1. quotes", "2. curly braces", "3. parenthesis", "4. square brackets"],
+    answer: "3. parenthesis"
   },
   {
-    title: "Example Question 3:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "Choice 3"
+    title: "Arrays in JavaScript can be used to store _____.",
+    choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+    answer: "4. all of the above"
   },
   {
-    title: "Example Question 4:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "Choice 1"
+    title: "String values must be enclosed within _____ when being assigned to variables.",
+    choices: ["1. commas", "2. curly braces", "3. quotes", "4. parenthesis"],
+    answer: "3. quotes"
   },
   {
-    title: "Example Question 5:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "Choice 3"
+    title: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
+    answer: "4. console.log"
   }
 ];
 
@@ -84,10 +76,14 @@ var questions = [
 function welcomePg() {
   // add text to Title tag
   startText.textContent = "Welcome to Code Quiz!";
+  // add instructions
+  instructions.textContent = "Try to answer the code-related questions within the thime limit. Keep in mind that incorrect answer will penalize your score/time by ten seconds!"
   // add text to button
   startBtn.textContent = "Start Quiz";
   // append text to container
   container.appendChild(startText);
+  // append instructions text to the container
+  container.appendChild(instructions);
   // append button to container
   container.appendChild(startBtn);
 }
@@ -95,7 +91,7 @@ function welcomePg() {
 function highScoreBtn() {
 
   scoreBtn.textContent = "HIGHSCORES";
- container.appendChild(scoreBtn);
+  container.appendChild(scoreBtn);
 }
 
 // function that shows the question and starts the timer
@@ -172,19 +168,19 @@ document.addEventListener("click", function () {
   // if event.target.matches (--choice button class--)
   if (event.target.matches(".choiceBtn")) {
     var correctAnswer = document.getElementById("correct");
+    
 
-    correctAnswer.setAttribute("style", "margin:auto; text-align:center;");
 
     // *****LOGIC TO CHECK FOR THE RIGHT ANSWER***//
     // set condition for matching qnswer
     if (event.target.textContent === questions[index].answer) {
       // set variable for correct answer result
 
-      correctAnswer.textContent = "CORRECT ANSWER";
+      correctAnswer.textContent = "CORRECT ANSWER :)";
       index++;
     }
     else {
-      correctAnswer.textContent = "WRONG ANSWER";
+      correctAnswer.textContent = "WRONG ANSWER :(";
       timeLeft = timeLeft - 10;
       index++;
 

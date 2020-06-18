@@ -1,3 +1,70 @@
+h1 {
+    color: purple;
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+
+h2 {
+    color:#419793;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.startBtn {
+    text-align: center;
+    width: 45%;
+    background-color: #dda3f5;
+    border: 3 px solid purple;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 30 px;
+    color: purple;
+    font-weight: bolder;
+    letter-spacing: 0.21px;
+    line-height: 45 px;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+.scorebtn{
+    position:fixed;
+    top: 0 px;
+    left: 0px;
+    text-align: center;
+    width: 45%;
+    background-color: #dda3f5;
+    border: 3 px solid purple;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 30 px;
+    color: purple;
+    font-weight: bolder;
+    letter-spacing: 0.21px;
+    line-height: 45 px;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+.container {
+    margin:auto;
+    width: 50%;
+    text-align: center;
+    color: purple;
+    font-size: larger;
+    font-weight: bold;
+ 
+}
+
+.qtext {
+    text-align: left ;
+    color:#419793;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .answer {
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -6,16 +73,46 @@
 
 .choiceBtn {
 display:grid;
+width: 70%;
+background-color: #dda3f5;
+border: 3 px solid purple;
+border-radius: 8px;
 margin: 10px;
+cursor: pointer;
+font-size: 15 px;
+font-weight: bolder;
+letter-spacing: 0.21px;
+line-height: 16px;
+padding: 7px;
+text-align: left;
+color:purple;
 }
 
-.container {
-    color: purple;
-    font-size: larger;
-    font-weight: bold;
+.answer {
+    margin-left: -370px;
+    text-align: center;
+    color:#419793;
+    font-size: large;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    
-}
-h1 {
-    color: purple;
-}
+
+
+.card {
+    background-color: #fff;
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+      rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+    margin: 2%;
+    margin-top: 80px;
+    padding: 20px;
+    width: 46%;
+    overflow: hidden;
+    position: relative;
+    float: left;
+  }
+  
+ #timer {
+     float: right;
+ }
