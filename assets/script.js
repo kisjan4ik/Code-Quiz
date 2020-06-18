@@ -28,6 +28,8 @@ scoreBtn.classList.add("scorebtn")
 // set variable for initial instructions
 var instructions = document.createElement("h2");
 
+// goback button
+var goBackBtn = document.getElementById("goback");
 // declare global vriables
 // variable to store timer number
 var timeLeft = 75;
@@ -123,7 +125,7 @@ function showTimer() {
     }
 
   }, 1 * 1000);
-
+  
 }
 
 
@@ -210,18 +212,24 @@ startBtn.addEventListener("click", startQuiz);
 
 // call function to show opening page
 
-welcomePg()
 
+welcomePg()
 
 function timerOver() {
   timer.textContent = ("The time is up!");
 
 }
 
-
 function pageRedirect() {
   window.location = "results.html"
 }
+
+// function goToStart(){
+//   window.location = "index.html"
+// }
+
+goBackBtn.addEventListener("click", welcomePg());
+  
 
 // function gameOver() {
 //   if (index == (questions.length - 1)) {
